@@ -1,8 +1,8 @@
-#include "Common.h"
+п»ї#include "Common.h"
 #include "MovingObject.h"
 
-// клас Plane - літак, їх створює GameManager
-// завжди летить зліва направо, з заданою швидкістю
+// РєР»Р°СЃ Plane - Р»С–С‚Р°Рє, С—С… СЃС‚РІРѕСЂСЋС” GameManager
+// Р·Р°РІР¶РґРё Р»РµС‚РёС‚СЊ Р·Р»С–РІР° РЅР°РїСЂР°РІРѕ, Р· Р·Р°РґР°РЅРѕСЋ С€РІРёРґРєС–СЃС‚СЋ
 class Plane : public MovingObject
 {
 public:

@@ -1,10 +1,10 @@
-#ifndef BULLET_H
+п»ї#ifndef BULLET_H
 #define BULLET_H
 
 #include "MovingObject.h"
 
-// клас Bullet - створюється GameManager, коли користувач натискає пробіл
-// зображається у формі прямокутника
+// РєР»Р°СЃ Bullet - СЃС‚РІРѕСЂСЋС”С‚СЊСЃСЏ GameManager, РєРѕР»Рё РєРѕСЂРёСЃС‚СѓРІР°С‡ РЅР°С‚РёСЃРєР°С” РїСЂРѕР±С–Р»
+// Р·РѕР±СЂР°Р¶Р°С”С‚СЊСЃСЏ Сѓ С„РѕСЂРјС– РїСЂСЏРјРѕРєСѓС‚РЅРёРєР°
 class Bullet : public MovingObject
 {
 public:

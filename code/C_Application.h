@@ -1,4 +1,4 @@
-#ifndef TEST_C_APPLICATION_H
+п»ї#ifndef TEST_C_APPLICATION_H
 #define TEST_C_APPLICATION_H
 
 #include "GameManager.h"
@@ -9,7 +9,7 @@ public:
 	C_Application(int screenWidth, int screenHeight);
 	~C_Application();
 
-	// викликається з фіксованою частотою в 50 кадрів в секунду (50 fps)
+	// РІРёРєР»РёРєР°С”С‚СЊСЃСЏ Р· С„С–РєСЃРѕРІР°РЅРѕСЋ С‡Р°СЃС‚РѕС‚РѕСЋ РІ 50 РєР°РґСЂС–РІ РІ СЃРµРєСѓРЅРґСѓ (50 fps)
 	void Tick(T_PressedKey pressedKeys);
 
 private:

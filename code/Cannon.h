@@ -1,11 +1,11 @@
-#ifndef CANNON_H
+п»ї#ifndef CANNON_H
 #define CANNON_H
 
 #include "Common.h"
 #include "MovingObject.h"
 
-// клас Cannon - гармата, якою керує гравець
-// зображається трикутником
+// РєР»Р°СЃ Cannon - РіР°СЂРјР°С‚Р°, СЏРєРѕСЋ РєРµСЂСѓС” РіСЂР°РІРµС†СЊ
+// Р·РѕР±СЂР°Р¶Р°С”С‚СЊСЃСЏ С‚СЂРёРєСѓС‚РЅРёРєРѕРј
 class Cannon : public MovingObject
 {
 public:

@@ -1,4 +1,4 @@
-#include "GameManager.h"
+п»ї#include "GameManager.h"
 #include "Geometry.h"
 #include <typeinfo>
 
@@ -17,7 +17,7 @@
 #define CANNON_WIDTH_PER 0.5
 #define CANNON_HEIGHT_PER  0.9
 
-// допоміжний клас - видає id для GameObjects
+// РґРѕРїРѕРјС–Р¶РЅРёР№ РєР»Р°СЃ - РІРёРґР°С” id РґР»СЏ GameObjects
 class IdManager
 {
 public:
@@ -84,8 +84,8 @@ void GameManager::init()
 	createLevel();
 }
 
-// створює літак на випадковій висоті в діапазоні від 10 до 300
-// та з випадковою швидкістю в діапазоні від 1 до 15
+// СЃС‚РІРѕСЂСЋС” Р»С–С‚Р°Рє РЅР° РІРёРїР°РґРєРѕРІС–Р№ РІРёСЃРѕС‚С– РІ РґС–Р°РїР°Р·РѕРЅС– РІС–Рґ 10 РґРѕ 300
+// С‚Р° Р· РІРёРїР°РґРєРѕРІРѕСЋ С€РІРёРґРєС–СЃС‚СЋ РІ РґС–Р°РїР°Р·РѕРЅС– РІС–Рґ 1 РґРѕ 15
 void GameManager::generateNpc()
 {
 	int randomHeight = getRandomNumberInRange(10, 300);
@@ -95,7 +95,7 @@ void GameManager::generateNpc()
 	mNpcCounter++;
 }
 
-// створює випадкову кількість літаків
+// СЃС‚РІРѕСЂСЋС” РІРёРїР°РґРєРѕРІСѓ РєС–Р»СЊРєС–СЃС‚СЊ Р»С–С‚Р°РєС–РІ
 void GameManager::generateRandomNumberOfNpcs()
 {
 	int randomNumberOfNpcs = getRandomNumberInRange(1, 5);
@@ -108,8 +108,8 @@ void GameManager::generateRandomNumberOfNpcs()
 
 bool GameManager::createLevel()
 {
-	// заповнюємо ігровий рівень
-	// створюємо літаки та гармату
+	// Р·Р°РїРѕРІРЅСЋС”РјРѕ С–РіСЂРѕРІРёР№ СЂС–РІРµРЅСЊ
+	// СЃС‚РІРѕСЂСЋС”РјРѕ Р»С–С‚Р°РєРё С‚Р° РіР°СЂРјР°С‚Сѓ
 	generateRandomNumberOfNpcs();
 
 	player = new Cannon(IdManager::getId(), CANNON_WIDTH, CANNON_HEIGHT,
@@ -118,7 +118,7 @@ bool GameManager::createLevel()
 	return true;
 }
 
-// обробляємо ввід з клавіатури
+// РѕР±СЂРѕР±Р»СЏС”РјРѕ РІРІС–Рґ Р· РєР»Р°РІС–Р°С‚СѓСЂРё
 void GameManager::handleKey(const T_PressedKey pressedKeys)
 {
 	if (pressedKeys & s_KeyLeft)
@@ -133,7 +133,7 @@ void GameManager::handleKey(const T_PressedKey pressedKeys)
 
 	if (pressedKeys & s_KeySpace)
 	{
-		// якщо гравець натиснув на пробіл - створюємо снаряди
+		// СЏРєС‰Рѕ РіСЂР°РІРµС†СЊ РЅР°С‚РёСЃРЅСѓРІ РЅР° РїСЂРѕР±С–Р» - СЃС‚РІРѕСЂСЋС”РјРѕ СЃРЅР°СЂСЏРґРё
 		Vec2 pos = player->getCenter();
 		Vec2 dir = player->getLookDirection();
 
@@ -143,7 +143,7 @@ void GameManager::handleKey(const T_PressedKey pressedKeys)
 
 void GameManager::updateObjects()
 {
-	// Рухаємо літаки та снаряди
+	// Р СѓС…Р°С”РјРѕ Р»С–С‚Р°РєРё С‚Р° СЃРЅР°СЂСЏРґРё
 	for (int ci = 0; ci < mAIList.size(); ci++)
 	{
 		mAIList[ci]->move();
@@ -152,40 +152,40 @@ void GameManager::updateObjects()
 
 void GameManager::updateStage()
 {
-	// оновлюємо інформацію на екрані
-	// якщо об'єкт покинув екран - видаляємо
-	// якщо літак було підбито - видаляємо
+	// РѕРЅРѕРІР»СЋС”РјРѕ С–РЅС„РѕСЂРјР°С†С–СЋ РЅР° РµРєСЂР°РЅС–
+	// СЏРєС‰Рѕ РѕР±'С”РєС‚ РїРѕРєРёРЅСѓРІ РµРєСЂР°РЅ - РІРёРґР°Р»СЏС”РјРѕ
+	// СЏРєС‰Рѕ Р»С–С‚Р°Рє Р±СѓР»Рѕ РїС–РґР±РёС‚Рѕ - РІРёРґР°Р»СЏС”РјРѕ
 
 	std::vector<int> removeObjects;
 
-	// проходимося по всіх літаках та снарядах
+	// РїСЂРѕС…РѕРґРёРјРѕСЃСЏ РїРѕ РІСЃС–С… Р»С–С‚Р°РєР°С… С‚Р° СЃРЅР°СЂСЏРґР°С…
 	for (int ai = 0; ai < mAIList.size(); ai++)
 	{
-		// якщо покинув екран
+		// СЏРєС‰Рѕ РїРѕРєРёРЅСѓРІ РµРєСЂР°РЅ
 		if (mAIList[ai]->getCenter().x > SCREEN_WIDTH || mAIList[ai]->getCenter().y < 0) {
 			removeObjects.push_back(ai);
 
-			// якщо літак
+			// СЏРєС‰Рѕ Р»С–С‚Р°Рє
 			if (dynamic_cast<Bullet*>(mAIList[ai]) == nullptr) {
-				// зменшуємо кількість літаків
+				// Р·РјРµРЅС€СѓС”РјРѕ РєС–Р»СЊРєС–СЃС‚СЊ Р»С–С‚Р°РєС–РІ
 				mNpcCounter--;
 			}
 			continue;
 		}
 		else {
-			// якщо не снаряд
+			// СЏРєС‰Рѕ РЅРµ СЃРЅР°СЂСЏРґ
 			if (dynamic_cast<Bullet*>(mAIList[ai]) == nullptr) {
-				// перевіряємо чи сталися колізії
-				// проходимо знову всі об'єкти
+				// РїРµСЂРµРІС–СЂСЏС”РјРѕ С‡Рё СЃС‚Р°Р»РёСЃСЏ РєРѕР»С–Р·С–С—
+				// РїСЂРѕС…РѕРґРёРјРѕ Р·РЅРѕРІСѓ РІСЃС– РѕР±'С”РєС‚Рё
 				for (int ab = 0; ab < mAIList.size(); ab++)
 				{
-					// якщо снаряд
+					// СЏРєС‰Рѕ СЃРЅР°СЂСЏРґ
 					if (dynamic_cast<Plane*>(mAIList[ab]) == nullptr) {
-						// перевіряємо, чи зіткнулися снаряд та літак
+						// РїРµСЂРµРІС–СЂСЏС”РјРѕ, С‡Рё Р·С–С‚РєРЅСѓР»РёСЃСЏ СЃРЅР°СЂСЏРґ С‚Р° Р»С–С‚Р°Рє
 						bool collided = testCircleCollission(mAIList[ai]->getCircumCenter(), mAIList[ab]->getCircumCenter(), mAIList[ai]->getCircumRadius(), mAIList[ab]->getCircumRadius());
 
 						if (collided) {
-							// якщо зіткнулися - видаляємо літак
+							// СЏРєС‰Рѕ Р·С–С‚РєРЅСѓР»РёСЃСЏ - РІРёРґР°Р»СЏС”РјРѕ Р»С–С‚Р°Рє
 							removeObjects.push_back(ai);
 							mNpcCounter--;
 							break;
@@ -196,12 +196,12 @@ void GameManager::updateStage()
 		}
 	}
 
-	// видаляємо літаки з списку
+	// РІРёРґР°Р»СЏС”РјРѕ Р»С–С‚Р°РєРё Р· СЃРїРёСЃРєСѓ
 	for (int i = removeObjects.size() - 1; i > -1; i--)
 	{
 		mAIList.erase(mAIList.begin() + removeObjects[i]);
 	}
-	// якщо було видалено всі літаки - створюємо
+	// СЏРєС‰Рѕ Р±СѓР»Рѕ РІРёРґР°Р»РµРЅРѕ РІСЃС– Р»С–С‚Р°РєРё - СЃС‚РІРѕСЂСЋС”РјРѕ
 	if (mNpcCounter == 0) {
 		generateRandomNumberOfNpcs();
 	}
@@ -209,26 +209,26 @@ void GameManager::updateStage()
 
 void GameManager::callFrameBegining(const T_PressedKey pressedKeys)
 {
-	// очищуємо екран
+	// РѕС‡РёС‰СѓС”РјРѕ РµРєСЂР°РЅ
 	mRenderer->refresh();
 
-	// обробляємо ввід з клавіатури
+	// РѕР±СЂРѕР±Р»СЏС”РјРѕ РІРІС–Рґ Р· РєР»Р°РІС–Р°С‚СѓСЂРё
 	handleKey(pressedKeys);
 
-	// рухаємо літаки та снаряди
+	// СЂСѓС…Р°С”РјРѕ Р»С–С‚Р°РєРё С‚Р° СЃРЅР°СЂСЏРґРё
 	updateObjects();
 
-	// обробляємо зіткнення та виліт за екран
+	// РѕР±СЂРѕР±Р»СЏС”РјРѕ Р·С–С‚РєРЅРµРЅРЅСЏ С‚Р° РІРёР»С–С‚ Р·Р° РµРєСЂР°РЅ
 	updateStage();
 }
 
 void GameManager::render()
 {
-	// відображаємо об'єкти
+	// РІС–РґРѕР±СЂР°Р¶Р°С”РјРѕ РѕР±'С”РєС‚Рё
 	std::vector<GameObject*> displayList;
-	// малюємо літаки та снаряди
+	// РјР°Р»СЋС”РјРѕ Р»С–С‚Р°РєРё С‚Р° СЃРЅР°СЂСЏРґРё
 	displayList.insert(displayList.end(), mAIList.begin(), mAIList.end());
-	// малюємо гармату
+	// РјР°Р»СЋС”РјРѕ РіР°СЂРјР°С‚Сѓ
 	displayList.insert(displayList.end(), player);
 	mRenderer->render(displayList);
 }

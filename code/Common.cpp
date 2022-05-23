@@ -1,11 +1,11 @@
-#include "Common.h"
+п»ї#include "Common.h"
 
 #include <cstdlib>
 
 int SCREEN_WIDTH;
 int SCREEN_HEIGHT;
 
-// повертає випадкове число в заданому проміжку
+// РїРѕРІРµСЂС‚Р°С” РІРёРїР°РґРєРѕРІРµ С‡РёСЃР»Рѕ РІ Р·Р°РґР°РЅРѕРјСѓ РїСЂРѕРјС–Р¶РєСѓ
 int getRandomNumberInRange(int start, int end)
 {
 	return start + (std::rand() % (end - start + 1));

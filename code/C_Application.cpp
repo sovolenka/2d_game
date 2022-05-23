@@ -1,4 +1,4 @@
-#include "C_Application.h"
+ï»¿#include "C_Application.h"
 
 C_Application::C_Application(int screenWidth, int screenHeight)
 	: m_ScreenWidth(screenWidth)
@@ -17,7 +17,7 @@ C_Application::~C_Application()
 	delete mManager;
 }
 
-// ôóíêö³ÿ, ÿêà áóäå âèêëèêàòèñÿ â öèêë³ äëÿ â³äîáðàæåííÿ êîæíîãî êàäðó
+// Ñ„ÑƒÐ½ÐºÑ†Ñ–Ñ, ÑÐºÐ° Ð±ÑƒÐ´Ðµ Ð²Ð¸ÐºÐ»Ð¸ÐºÐ°Ñ‚Ð¸ÑÑ Ð² Ñ†Ð¸ÐºÐ»Ñ– Ð´Ð»Ñ Ð²Ñ–Ð´Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð½Ñ ÐºÐ¾Ð¶Ð½Ð¾Ð³Ð¾ ÐºÐ°Ð´Ñ€Ñƒ
 void C_Application::Tick(T_PressedKey pressedKeys)
 {
 	mManager->callFrameBegining(pressedKeys);

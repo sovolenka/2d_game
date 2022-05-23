@@ -1,11 +1,11 @@
-#ifndef GAMEOBJECT_H
+п»ї#ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 
 #include "Geometry.h"
 
 #include <vector>
 
-// абстрактний клас GameObject - від нього буде наслідуватися усе, що буде рендеритися
+// Р°Р±СЃС‚СЂР°РєС‚РЅРёР№ РєР»Р°СЃ GameObject - РІС–Рґ РЅСЊРѕРіРѕ Р±СѓРґРµ РЅР°СЃР»С–РґСѓРІР°С‚РёСЃСЏ СѓСЃРµ, С‰Рѕ Р±СѓРґРµ СЂРµРЅРґРµСЂРёС‚РёСЃСЏ
 class GameObject
 {
 public:

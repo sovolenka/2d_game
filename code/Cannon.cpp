@@ -1,4 +1,4 @@
-#include "Cannon.h"
+п»ї#include "Cannon.h"
 
 #include "graphics.h"
 
@@ -12,7 +12,7 @@ Cannon::Cannon(const int id, const float width, const float height, const float 
 	setVertices();
 }
 
-// малюємо сторони трикутника
+// РјР°Р»СЋС”РјРѕ СЃС‚РѕСЂРѕРЅРё С‚СЂРёРєСѓС‚РЅРёРєР°
 void Cannon::displaySelf()
 {
 	if (mIsRender)
@@ -23,7 +23,7 @@ void Cannon::displaySelf()
 	}
 }
 
-// рахуємо координати вершин
+// СЂР°С…СѓС”РјРѕ РєРѕРѕСЂРґРёРЅР°С‚Рё РІРµСЂС€РёРЅ
 void Cannon::setVertices()
 {
 	mVertices.clear();
@@ -33,7 +33,7 @@ void Cannon::setVertices()
 	mVertices.push_back(Vec2(mCenter.x + mWidth * 0.5, mCenter.y + mHeight));
 }
 
-// переміщаємо гармату в потрібну сторону, залежно від вводу з клавіатури
+// РїРµСЂРµРјС–С‰Р°С”РјРѕ РіР°СЂРјР°С‚Сѓ РІ РїРѕС‚СЂС–Р±РЅСѓ СЃС‚РѕСЂРѕРЅСѓ, Р·Р°Р»РµР¶РЅРѕ РІС–Рґ РІРІРѕРґСѓ Р· РєР»Р°РІС–Р°С‚СѓСЂРё
 void Cannon::movePlayer(const eDirection dir)
 {
 	int sign;
@@ -47,7 +47,7 @@ void Cannon::movePlayer(const eDirection dir)
 		sign = 1;
 	}
 
-	// переміщаємо вершини та центри
+	// РїРµСЂРµРјС–С‰Р°С”РјРѕ РІРµСЂС€РёРЅРё С‚Р° С†РµРЅС‚СЂРё
 	for (std::vector<Vec2>::iterator it = mVertices.begin(); it != mVertices.end(); it++)
 	{
 		it->x += mSpeed * sign;
@@ -56,7 +56,7 @@ void Cannon::movePlayer(const eDirection dir)
 	mCenter.x += mSpeed * sign;
 }
 
-// повертає напрям стрільби
+// РїРѕРІРµСЂС‚Р°С” РЅР°РїСЂСЏРј СЃС‚СЂС–Р»СЊР±Рё
 Vec2 Cannon::getLookDirection()
 {
 	return Vec2(0, -mHeight);

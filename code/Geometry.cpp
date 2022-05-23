@@ -1,7 +1,7 @@
-#include "Common.h"
+п»ї#include "Common.h"
 #include <math.h>
 
-// будує лінію між двома точками
+// Р±СѓРґСѓС” Р»С–РЅС–СЋ РјС–Р¶ РґРІРѕРјР° С‚РѕС‡РєР°РјРё
 void lineFromPoints(Vec2 P, Vec2 Q, double& a,
 	double& b, double& c)
 {
@@ -11,7 +11,7 @@ void lineFromPoints(Vec2 P, Vec2 Q, double& a,
 }
 
 
-// перетворює вхідну лінію в її серединний перпендикуляр
+// РїРµСЂРµС‚РІРѕСЂСЋС” РІС…С–РґРЅСѓ Р»С–РЅС–СЋ РІ С—С— СЃРµСЂРµРґРёРЅРЅРёР№ РїРµСЂРїРµРЅРґРёРєСѓР»СЏСЂ
 void perpendicularBisectorFromLine(Vec2 P, Vec2 Q,
 	double& a, double& b, double& c)
 {
@@ -26,7 +26,7 @@ void perpendicularBisectorFromLine(Vec2 P, Vec2 Q,
 	b = temp;
 }
 
-// повертає точку перетину двох ліній
+// РїРѕРІРµСЂС‚Р°С” С‚РѕС‡РєСѓ РїРµСЂРµС‚РёРЅСѓ РґРІРѕС… Р»С–РЅС–Р№
 Vec2 lineLineIntersection(double a1, double b1, double c1,
 	double a2, double b2, double c2)
 {
@@ -37,7 +37,7 @@ Vec2 lineLineIntersection(double a1, double b1, double c1,
 	
 }
 
-// знаходить центр описаного кола трикутника методок серединних перпендикулярів
+// Р·РЅР°С…РѕРґРёС‚СЊ С†РµРЅС‚СЂ РѕРїРёСЃР°РЅРѕРіРѕ РєРѕР»Р° С‚СЂРёРєСѓС‚РЅРёРєР° РјРµС‚РѕРґРѕРє СЃРµСЂРµРґРёРЅРЅРёС… РїРµСЂРїРµРЅРґРёРєСѓР»СЏСЂС–РІ
 //Vec2 findTriangleCircumCenter(Vec2 P, Vec2 Q, Vec2 R)
 //{
 //	// Line PQ is represented as ax + by = c
@@ -62,7 +62,7 @@ Vec2 lineLineIntersection(double a1, double b1, double c1,
 //	return circumcenter;
 //}
 
-// знаходить центр описаного кола трикутника
+// Р·РЅР°С…РѕРґРёС‚СЊ С†РµРЅС‚СЂ РѕРїРёСЃР°РЅРѕРіРѕ РєРѕР»Р° С‚СЂРёРєСѓС‚РЅРёРєР°
 Vec2 findTriangleCircumCenter(Vec2 A, Vec2 B, Vec2 C)
 {
 	int d = 2 * (A.x * (B.y - C.y) + B.x * (C.y - A.y) + C.x * (A.y - B.y));
@@ -71,20 +71,20 @@ Vec2 findTriangleCircumCenter(Vec2 A, Vec2 B, Vec2 C)
 	return Vec2(ux, uy);
 }
 
-// рахує довжину лінії по двом точкам
+// СЂР°С…СѓС” РґРѕРІР¶РёРЅСѓ Р»С–РЅС–С— РїРѕ РґРІРѕРј С‚РѕС‡РєР°Рј
 double getLineLengthByPoints(Vec2 P, Vec2 Q)
 {
 	return sqrt(pow((Q.x - P.x), 2) + pow((Q.y - P.y), 2));
 }
 
-// рахує площу трикутника за формулою Герона
+// СЂР°С…СѓС” РїР»РѕС‰Сѓ С‚СЂРёРєСѓС‚РЅРёРєР° Р·Р° С„РѕСЂРјСѓР»РѕСЋ Р“РµСЂРѕРЅР°
 double getTriangleAreaByLines(double a, double b, double c)
 {
 	double p = (a + b + c) / 2;
 	return sqrt(p * (p - a) * (p - b) * (p - c));
 }
 
-// рахує радіус описаного кола для трикутника
+// СЂР°С…СѓС” СЂР°РґС–СѓСЃ РѕРїРёСЃР°РЅРѕРіРѕ РєРѕР»Р° РґР»СЏ С‚СЂРёРєСѓС‚РЅРёРєР°
 double findTriangleCircumRadius(Vec2 P, Vec2 Q, Vec2 R)
 {
 	double pq = getLineLengthByPoints(P, Q);
@@ -95,36 +95,36 @@ double findTriangleCircumRadius(Vec2 P, Vec2 Q, Vec2 R)
 	return (pq * qr * pr) / (4 * s);;
 }
 
-// P та Q це діагональні вершини прямокутника
+// P С‚Р° Q С†Рµ РґС–Р°РіРѕРЅР°Р»СЊРЅС– РІРµСЂС€РёРЅРё РїСЂСЏРјРѕРєСѓС‚РЅРёРєР°
 double findRectangleCircumRadius(Vec2 P, Vec2 Q)
 {
 	return getLineLengthByPoints(P, Q) / 2;
 }
 
-// рахує центр описаного кола для прямокутника
+// СЂР°С…СѓС” С†РµРЅС‚СЂ РѕРїРёСЃР°РЅРѕРіРѕ РєРѕР»Р° РґР»СЏ РїСЂСЏРјРѕРєСѓС‚РЅРёРєР°
 Vec2 findRectangleCircumCenter(Vec2 P, Vec2 Q)
 {
 	return Vec2((P.x + Q.x) / 2, (P.y + Q.y) / 2);
 }
 
-// перевіряє, чи сталося зіткнення (колізія)
+// РїРµСЂРµРІС–СЂСЏС”, С‡Рё СЃС‚Р°Р»РѕСЃСЏ Р·С–С‚РєРЅРµРЅРЅСЏ (РєРѕР»С–Р·С–СЏ)
 bool testCircleCollission(Vec2 center1, Vec2 center2, double radius1, double radius2)
 {
-	// рахуємо відстань між центрами двох кіл
+	// СЂР°С…СѓС”РјРѕ РІС–РґСЃС‚Р°РЅСЊ РјС–Р¶ С†РµРЅС‚СЂР°РјРё РґРІРѕС… РєС–Р»
 	double dx = (center1.x + radius1) - (center2.x + radius2);
 	double dy = (center1.y + radius1) - (center2.y + radius2);
 
 	double distance = sqrt(dx * dx + dy * dy);
 
-	// якщо відстань між центрами менше, ніж сума радіусів кіл
-	// значить сталося зіткнення
+	// СЏРєС‰Рѕ РІС–РґСЃС‚Р°РЅСЊ РјС–Р¶ С†РµРЅС‚СЂР°РјРё РјРµРЅС€Рµ, РЅС–Р¶ СЃСѓРјР° СЂР°РґС–СѓСЃС–РІ РєС–Р»
+	// Р·РЅР°С‡РёС‚СЊ СЃС‚Р°Р»РѕСЃСЏ Р·С–С‚РєРЅРµРЅРЅСЏ
 	if (distance < radius1 + radius2)
 	{
-		// зіткнення
+		// Р·С–С‚РєРЅРµРЅРЅСЏ
 		return true;
 	}
 	else {
-		// нема зіткнення
+		// РЅРµРјР° Р·С–С‚РєРЅРµРЅРЅСЏ
 		return false;
 	}
 }

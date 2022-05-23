@@ -1,4 +1,4 @@
-#ifndef GEOMETRY_H
+п»ї#ifndef GEOMETRY_H
 #define GEOMETRY_H
 
 struct Vec2
@@ -14,10 +14,10 @@ struct Vec2
 
 	float x, y;
 };
-// трикутник
+// С‚СЂРёРєСѓС‚РЅРёРє
 extern Vec2 findTriangleCircumCenter(Vec2 P, Vec2 Q, Vec2 R);
 extern double findTriangleCircumRadius(Vec2 P, Vec2 Q, Vec2 R);
-// прямокутник
+// РїСЂСЏРјРѕРєСѓС‚РЅРёРє
 extern double findRectangleCircumRadius(Vec2 P, Vec2 Q);
 extern Vec2 findRectangleCircumCenter(Vec2 P, Vec2 Q);
 

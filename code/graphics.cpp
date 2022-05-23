@@ -1,9 +1,9 @@
-#include "graphics.h"
+п»ї#include "graphics.h"
 
 static HWND g_Hwnd;
 
 
-// мадює замовнений прямокутник
+// РјР°РґСЋС” Р·Р°РјРѕРІРЅРµРЅРёР№ РїСЂСЏРјРѕРєСѓС‚РЅРёРє
 void FillRect(int x, int y, int sx, int sy, unsigned int color)
 {
 	HDC hdc = GetDC(g_Hwnd);
@@ -16,7 +16,7 @@ void FillRect(int x, int y, int sx, int sy, unsigned int color)
 }
 
 
-// малює лінію
+// РјР°Р»СЋС” Р»С–РЅС–СЋ
 void DrawLine(int x1, int y1, int x2, int y2, unsigned int color)
 {
 	HDC hdc = GetDC(g_Hwnd);
@@ -32,7 +32,7 @@ void DrawLine(int x1, int y1, int x2, int y2, unsigned int color)
 }
 
 
-// ініціалізує графічну бібліотеку
+// С–РЅС–С†С–Р°Р»С–Р·СѓС” РіСЂР°С„С–С‡РЅСѓ Р±С–Р±Р»С–РѕС‚РµРєСѓ
 HWND InitializeGraphics(const s_init& init)
 {
 	WNDCLASSEX wc;

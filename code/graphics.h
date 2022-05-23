@@ -1,4 +1,4 @@
-#ifndef TEST_GRAPHICS_H
+п»ї#ifndef TEST_GRAPHICS_H
 #define TEST_GRAPHICS_H
 
 
@@ -6,7 +6,7 @@
 #include <windows.h>
 
 
-// повертає колір пікселя по даних rgb
+// РїРѕРІРµСЂС‚Р°С” РєРѕР»С–СЂ РїС–РєСЃРµР»СЏ РїРѕ РґР°РЅРёС… rgb
 inline unsigned int GetRGB(unsigned int r, unsigned int g, unsigned int b)
 {
 	return r + (g<<8) + (b<<16);

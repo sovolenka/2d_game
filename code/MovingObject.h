@@ -1,9 +1,9 @@
-#ifndef MOVINGOBJECT_H
+п»ї#ifndef MOVINGOBJECT_H
 #define MOVINGOBJECT_H
 
 #include "GameObject.h"
 
-// абстрактний клас для всіх рухомих об'єктів
+// Р°Р±СЃС‚СЂР°РєС‚РЅРёР№ РєР»Р°СЃ РґР»СЏ РІСЃС–С… СЂСѓС…РѕРјРёС… РѕР±'С”РєС‚С–РІ
 class MovingObject : public GameObject
 {
 public:

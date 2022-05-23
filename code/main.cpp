@@ -1,4 +1,4 @@
-#include "graphics.h"
+п»ї#include "graphics.h"
 
 #undef UNICODE
 #include <windows.h>
@@ -8,7 +8,7 @@
 #include "C_Application.h"
 
 
-// глобальні змінні
+// РіР»РѕР±Р°Р»СЊРЅС– Р·РјС–РЅРЅС–
 
 T_PressedKey g_PressedKeys = 0;
 
@@ -67,12 +67,12 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	// ініціалізація графічної бібліотеки
-	// *** не видаляти ***
+	// С–РЅС–С†С–Р°Р»С–Р·Р°С†С–СЏ РіСЂР°С„С–С‡РЅРѕС— Р±С–Р±Р»С–РѕС‚РµРєРё
+	// *** РЅРµ РІРёРґР°Р»СЏС‚Рё ***
 	s_init	init;
 	memset(&init, 0, sizeof(init));
 
-	init.captionText  = "ППО | Слава Україні!";
+	init.captionText  = "РџРџРћ | РЎР»Р°РІР° РЈРєСЂР°С—РЅС–!";
 	init.instance     = hInstance;
 	init.wndProc      = WndProc;
 	init.screenWidth  = screenWidth;
@@ -80,7 +80,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	HWND hwndMain = InitializeGraphics( init );
 	
-	// очищаємо екран
+	// РѕС‡РёС‰Р°С”РјРѕ РµРєСЂР°РЅ
 
 	FillRect(0, 0, screenWidth, 580, GetRGB(135, 206, 250));
 	FillRect(0, 580, screenWidth, screenHeight, GetRGB(139, 69, 19));
@@ -89,11 +89,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		C_Application app(screenWidth, screenHeight);
 		DWORD lastTime = timeGetTime();
 		
-		// головний цикл гри
+		// РіРѕР»РѕРІРЅРёР№ С†РёРєР» РіСЂРё
 
 		while(true)
 		{
-			// спимо kSleepTimeMs мілісекунд
+			// СЃРїРёРјРѕ kSleepTimeMs РјС–Р»С–СЃРµРєСѓРЅРґ
 
 			const DWORD kSleepTimeMs = 20;			
 			const DWORD currentTime = timeGetTime();
@@ -107,7 +107,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			lastTime = currentTime;			
 
 			// Windows messaging
-			// *** не видаляти ***
+			// *** РЅРµ РІРёРґР°Р»СЏС‚Рё ***
 			MSG msg;
 			if(PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 			{
@@ -125,7 +125,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
 	}
 
-	// *** не видаляти ***
+	// *** РЅРµ РІРёРґР°Р»СЏС‚Рё ***
 	UninitializeGraphics();
 
 	return 0;
