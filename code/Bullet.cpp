@@ -2,22 +2,22 @@
 
 #include "graphics.h"
 
-#define SPEED 0.5 // швидкість снаряду за замовчуванням
+#define SPEED 0.5 // С€РІРёРґРєС–СЃС‚СЊ СЃРЅР°СЂСЏРґСѓ Р·Р° Р·Р°РјРѕРІС‡СѓРІР°РЅРЅСЏ
 
 Bullet::Bullet(const int id, const float width, const float height, const float centX, const float centY,
 				const float moveDirX, const float movedirY, unsigned int red, unsigned int green, unsigned int blue)
 	:MovingObject(id, GetRGB(red, green, blue), width, height, centX, centY, moveDirX, movedirY)
 {
 	mSpeed = SPEED;
-	// рохраховуємо вершини
+	// СЂРѕС…СЂР°С…РѕРІСѓС”РјРѕ РІРµСЂС€РёРЅРё
 	setVertices();
-	// рахуємо радіус описаного кола та його центр
+	// СЂР°С…СѓС”РјРѕ СЂР°РґС–СѓСЃ РѕРїРёСЃР°РЅРѕРіРѕ РєРѕР»Р° С‚Р° Р№РѕРіРѕ С†РµРЅС‚СЂ
 	circumCenter = findRectangleCircumCenter(mVertices[0], mVertices[3]);
 	circumRadius = findRectangleCircumRadius(mVertices[0], mVertices[3]);
 }
 
-// відображається як прямокутник
-// малюємо сторони
+// РІС–РґРѕР±СЂР°Р¶Р°С”С‚СЊСЃСЏ СЏРє РїСЂСЏРјРѕРєСѓС‚РЅРёРє
+// РјР°Р»СЋС”РјРѕ СЃС‚РѕСЂРѕРЅРё
 void Bullet::displaySelf()
 {
 	if (mIsRender)
@@ -29,10 +29,10 @@ void Bullet::displaySelf()
 	}
 }
 
-// коли переміщуємося, зміщуємо всі вершини, та центри
+// РєРѕР»Рё РїРµСЂРµРјС–С‰СѓС”РјРѕСЃСЏ, Р·РјС–С‰СѓС”РјРѕ РІСЃС– РІРµСЂС€РёРЅРё, С‚Р° С†РµРЅС‚СЂРё
 void Bullet::move()
 {
-	// переміщуємо вершини
+	// РїРµСЂРµРјС–С‰СѓС”РјРѕ РІРµСЂС€РёРЅРё
 	for (std::vector<Vec2>::iterator it = mVertices.begin(); it != mVertices.end(); it++)
 	{
 		it->x += (mMoveDirection.x * mSpeed);
